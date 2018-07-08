@@ -1,4 +1,4 @@
-Centreon Server PowerShell Module
+#Centreon Server PowerShell Module
 =============
 
 ##One time setup
@@ -25,7 +25,7 @@ Centreon Server PowerShell Module
     Get-Command -Module SecretServer
 ```
    
-# Changelog
+##Changelog
 
 # ToDo
 
