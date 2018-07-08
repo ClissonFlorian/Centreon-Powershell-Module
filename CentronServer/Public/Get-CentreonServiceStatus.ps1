@@ -1,4 +1,4 @@
-function Get-CentreonServiceStatus {
+function Get-CentreonServiceStatus{
     <#
     .SYNOPSIS
         This is a simple Powershell function to get real-time services information.

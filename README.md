@@ -27,7 +27,7 @@
     - All users :
         "C:\Program Files\WindowsPowerShell\Modules"
 - **Allow user to use centreon API**
-<a href="https://documentation.centreon.com/docs/centreon/en/latest/api/api_rest/index.html#permissions">Centreon Permissions</a>
+<a href="https://documentation.centreon.com/docs/centreon/en/latest/api/api_rest/index.html#permissions">(Centreon Permissions)</a>
 
 ### Import Module
 
