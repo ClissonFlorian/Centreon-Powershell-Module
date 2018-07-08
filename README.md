@@ -1,31 +1,59 @@
 # Centreon Server PowerShell Module
-=============
+
+# Introduction
+
+## Description
+
+    Use the Centreon API easily with Powershell
+
+## Functions Available
+
++------------------------+-------------------+
+|    Function            |    Description    |
++------------------------+-------------------+
+| New-CentreonConnection |     -------       |
+| Auto Align             |     ----          |
++------------------------+-------------------+
+
+## Description    
 
 ## One time setup
-    #Download the repository
-    #Unblock the zip file
-    #Extract CentreonServer folder to a module path 
-    (e.g. $env:USERPROFILE\Documents\WindowsPowerShell\Modules\)
-    (e.g. "C:\Program Files\WindowsPowerShell\Modules")
 
-## Quick Start
+### Download and Unzip package
+ * Download the repository
+ * Unblock the zip file
+ * Extract CentreonServer folder to a module path 
+    * Local user
+        *   (e.g. $env:USERPROFILE\Documents\WindowsPowerShell\Modules\)
+    * All users
+        *   (e.g. "C:\Program Files\WindowsPowerShell\Modules")
 
-```powershell
+### Import Module
 
-```
-
-# Each PowerShell session:
 ```powershell
     Import-Module CentreonServer  #Alternatively, Import-Module "\\Path\To\CentreonServer"
 ```
-    
 
-#List commands in the module
+## Quick Start
+
+### Open connection to Centreon Server
 ```powershell
-    Get-Command -Module SecretServer
+    $Session = New-SSConnection -server 192.168.1.50
+```
+
+### Open connection to Centreon Server
+```powershell
+   Get-ServiceStatus -Session $Session 
+```
+
+## How to use it
+
+### List commands of the module
+```powershell
+Get-Command -Module CentreonServer
 ```
    
 ##Changelog
 
-# ToDo
+## ToDo
 
