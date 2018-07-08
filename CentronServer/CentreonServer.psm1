@@ -12,7 +12,7 @@ foreach($import in @($Public + $Private)) {
     }
 }
 
-#Export public functions and the
+#Export public functions
 $PublicNames = $Public | Select -ExpandProperty BaseName
 
 Export-ModuleMember -Function $PublicNames
