@@ -26,6 +26,8 @@
         $env:USERPROFILE\Documents\WindowsPowerShell\Modules\)
     - All users :
         "C:\Program Files\WindowsPowerShell\Modules"
+- **Allow user to use centreon API**
+<a href="https://documentation.centreon.com/docs/centreon/en/latest/api/api_rest/index.html#permissions">Centreon Permissions</a>
 
 ### Import Module
 
@@ -55,6 +57,21 @@ $Session = New-CentreonConnection -server 192.168.0.30 -Credentials $Credentials
 
 ## How to use it
 
+Refer to the <a href="https://documentation.centreon.com/docs/centreon/en/latest/api/clapi/objects/index.html">Centreon Clapi documentation</a> documentation Centreon Clapi according to the action you want to do.
+
+
+The following command line, allow to add an Host to Centreon :
+```powershell
+ Run-CentreonCommand -Session $Session -object HOST -action ADD -Values "test;Test host;127.0.0.1;OS-Linux-SNMP-custom;central;Centreon_platform"
+```
+
+The following command line, allow to show the contact groups :
+```powershell
+ Run-CentreonCommand -Session $Session -object CG -action show
+```
+
+
+
 ### Get Centreon Hosts
 ```powershell
    #EXMPLE 1
@@ -83,6 +100,8 @@ $Session = New-CentreonConnection -server 192.168.0.30 -Credentials $Credentials
 ```powershell
 #EXMPLE 1
 Get-CentreonServiceStatus -Session $Session 
+
+OUTPUT:
 
 host_id                : 15
 name                   : Centeon-central
@@ -118,17 +137,11 @@ Get-CentreonHostsStatus -Session $Session -status all -order ASC -search '%rsys%
 
 ### Run Centreon(Clapi) Command
 
-Report you to the  <a href="https://documentation.centreon.com/docs/centreon/en/latest/api/clapi/objects/index.html">Centreon Clapi documentation</a> according the action that you want to do.
 
-
-The following command line, allow to add an Host to Centreon :
-```powershell
- Run-CentreonCommand -Session $Session -object HOST -action ADD -Values "test;Test host;127.0.0.1;OS-Linux-SNMP-custom;central;Centreon_platform"
-```
 
 ## ToDo
 
-- [ ] Not sure that the plugins work with https
+- [ ] Not sure that the powershell plugin work with https,to try?
 - [ ] Manage case when the token is expired
 - [ ] Include authentification from default credentials (Active Directory Auth)
-- [ ] Create-Set-CentreonConfig ?
+- [ ] Create Set-CentreonServerConfig?
