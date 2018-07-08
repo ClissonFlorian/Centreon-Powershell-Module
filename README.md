@@ -6,7 +6,7 @@
 
     Use the Centreon API easily with Powershell
 
-## Functions Available
+## Available Functions 
 
 |Function | Description |
 |:------|:-----------|
@@ -14,20 +14,18 @@
 | **Get-CentreonHostStatus**| Return the centreon hosts status in realtime|
 | **Get-CentreonServiceStatus**| Return the centreon services status in realtime |
 | **Run-CentreonCommand**   | To manage the centreon objects (add,delete,set,show) |
-
-
-## Description    
+   
 
 ## One time setup
 
 ### Download and Unzip package
- * Download the repository
- * Unblock the zip file
- * Extract CentreonServer folder to a module path 
+Download the repository
+Unblock the zip file
+Extract CentreonServer folder to a module path :
     * Local user
-        *   (e.g. $env:USERPROFILE\Documents\WindowsPowerShell\Modules\)
+      $env:USERPROFILE\Documents\WindowsPowerShell\Modules\)
     * All users
-        *   (e.g. "C:\Program Files\WindowsPowerShell\Modules")
+        *   "C:\Program Files\WindowsPowerShell\Modules"
 
 ### Import Module
 
@@ -58,3 +56,6 @@ Get-Command -Module CentreonServer
 
 ## ToDo
 
+- [ ] Not sure that the plugins work with https
+- [ ] Include authentification from default credentials (Active Directory Auth)
+- [ ] Create-Set-CentreonConfig ?
