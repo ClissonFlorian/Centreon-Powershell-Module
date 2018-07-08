@@ -32,7 +32,7 @@
 ### Import Module
 
 ```powershell
-Import-Module CentreonServer  #Alternatively, Import-Module "\\Path\To\CentreonServer\CentreonServer.psm1"
+Import-Module CentreonServer.psd1  #Alternatively, Import-Module "\\Path\To\CentreonServer\CentreonServer.psd1"
 ```
 
 ## Quick Start
@@ -57,7 +57,7 @@ $Session = New-CentreonConnection -server 192.168.0.30 -Credentials $Credentials
 
 ## How to use it
 
-Refer to the <a href="https://documentation.centreon.com/docs/centreon/en/latest/api/clapi/objects/index.html">Centreon Clapi documentation</a> documentation Centreon Clapi according to the action you want to do.
+Refer you to the <a href="https://documentation.centreon.com/docs/centreon/en/latest/api/clapi/objects/index.html">Centreon Clapi documentation</a> documentation Centreon Clapi according to the action you want to do.
 
 ### Run Centreon(Clapi) Command
 
