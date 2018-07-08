@@ -22,10 +22,10 @@
 Download the repository
 Unblock the zip file
 Extract CentreonServer folder to a module path :
-    - Local user
-            $env:USERPROFILE\Documents\WindowsPowerShell\Modules\)
-    - All users
-           "C:\Program Files\WindowsPowerShell\Modules"
+- Local user
+        $env:USERPROFILE\Documents\WindowsPowerShell\Modules\)
+- All users
+        "C:\Program Files\WindowsPowerShell\Modules"
 
 ### Import Module
 
@@ -90,7 +90,7 @@ Get-CentreonServiceStatus -Session $Session -status all -order ASC  -search '%rs
 
 ### Run Centreon(Clapi) Command
 
-You have to report you to the  <a href="https://documentation.centreon.com/docs/centreon/en/latest/">Centreon Clapi documentation</a>
+Report you to the  <a href="https://documentation.centreon.com/docs/centreon/en/latest/api/clapi/objects/index.html">Centreon Clapi documentation</a> according the action that you want to do:
 
 
 ```powershell
