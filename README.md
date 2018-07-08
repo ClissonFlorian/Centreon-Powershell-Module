@@ -10,10 +10,10 @@
 
 |Function | Description |
 |:------|:-----------|
-| New-CentreonConnection | To connect to the Centreon Server|
-| Get-CentreonHostStatus| Return the centreon hosts status in realtime|
-| Get-CentreonServiceStatus| Return the centreon services status in realtime |
-| Run-CentreonCommand   | To manage the centreon objects (add,delete,set,show) |
+| **New-CentreonConnection** | To connect to the Centreon Server|
+| **Get-CentreonHostStatus**| Return the centreon hosts status in realtime|
+| **Get-CentreonServiceStatus**| Return the centreon services status in realtime |
+| **Run-CentreonCommand**   | To manage the centreon objects (add,delete,set,show) |
 
 
 ## Description    
