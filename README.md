@@ -30,7 +30,7 @@ Extract CentreonServer folder to a module path :
 ### Import Module
 
 ```powershell
-    Import-Module CentreonServer  #Alternatively, Import-Module "\\Path\To\CentreonServer"
+Import-Module CentreonServer  #Alternatively, Import-Module "\\Path\To\CentreonServer"
 ```
 
 ## Quick Start
@@ -41,8 +41,16 @@ Get-Command -Module CentreonServer
 ```
 
 ### Open connection to Centreon Server
+
+#METHODE 1 : Will request you, your centreon credentials 
 ```powershell
-    $Session = New-CentreonConnection -server 192.168.1.50
+$Session = New-CentreonConnection -server 192.168.1.50
+```
+
+#METHODE 2 : Allow to specify your credentials 
+```powershell
+$Credentials = Get-Credential -UserName fclisson
+$Session = New-CentreonConnection -server 192.168.0.30 -Credentials $Credentials
 ```
 
 ## How to use it
@@ -51,11 +59,33 @@ Get-Command -Module CentreonServer
 ```powershell
    #EXMPLE 1
    Get-HostStatus -Session $Session 
+
+   OUTPUT:
+
+    id                     : 15
+    name                   : Centeon-central
+    alias                  : Centreon central server
+    address                : 127.0.0.1
+    state                  : 0
+    state_type             : 1
+    output                 : OK - 127.0.0.1: rta 0.025ms, lost 0%
+    max_check_attempts     : 3
+    check_attempt          : 1
+    last_check             : 1531060693
+    last_state_change      : 1528586735
+    last_hard_state_change : 1528586735
+    acknowledged           : 0
+    instance_name          : Central
+    criticality            :
 ```
 
 ### Get Centreon Services
 ```powershell
-   Get-ServiceStatus -Session $Session 
+#EXMPLE 1
+Get-ServiceStatus -Session $Session 
+
+#EXMPLE 2
+Get-ServiceStatus -Session $Session -status all -order ASC  -search '%rsys%'
 ```
 
 

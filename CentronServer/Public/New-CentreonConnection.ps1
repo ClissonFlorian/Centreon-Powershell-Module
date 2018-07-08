@@ -36,6 +36,8 @@ function New-CentreonConnection{
 
     )
 
+    $url = "$server/centreon/api/index.php?"
+
     $params = @{
         "username" = "$($Credentials.UserName)";
         "password" = "$($Credentials.GetNetworkCredential().Password)";
@@ -58,7 +60,7 @@ function New-CentreonConnection{
     $Session = @{
 
         server  = $server
-        url     = "$server/centreon/api/index.php?"
+        url     = "$url"
         token   = $token
     }
 
