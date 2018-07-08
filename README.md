@@ -40,7 +40,7 @@ Import-Module CentreonServer  #Alternatively, Import-Module "\\Path\To\CentreonS
 Get-Command -Module CentreonServer
 ```
 
-### Open connection to Centreon Server
+### Centreon Server Connection
 
 #METHODE 1 : Will request you, your centreon credentials 
 ```powershell
@@ -58,7 +58,7 @@ $Session = New-CentreonConnection -server 192.168.0.30 -Credentials $Credentials
 ### Get Centreon Hosts
 ```powershell
    #EXMPLE 1
-   Get-HostStatus -Session $Session 
+   Get-CentreonHostStatus -Session $Session 
 
    OUTPUT:
 
@@ -82,18 +82,24 @@ $Session = New-CentreonConnection -server 192.168.0.30 -Credentials $Credentials
 ### Get Centreon Services
 ```powershell
 #EXMPLE 1
-Get-ServiceStatus -Session $Session 
+Get-CentreonServiceStatus -Session $Session 
 
 #EXMPLE 2
-Get-ServiceStatus -Session $Session -status all -order ASC  -search '%rsys%'
+Get-CentreonServiceStatus -Session $Session -status all -order ASC  -search '%rsys%'
 ```
 
+### Run Centreon(Clapi) Command
 
-   
-##Changelog
+You have to report you to the  <a href="https://documentation.centreon.com/docs/centreon/en/latest/">Centreon Clapi documentation</a>
+
+
+```powershell
+ Run-CentreonCommand -Session $Session -object HOST -action ADD -Values "test;Test host;127.0.0.1;OS-Linux-SNMP-custom;central;Centreon_platform"
+```
 
 ## ToDo
 
 - [ ] Not sure that the plugins work with https
+- [ ] Manage case when the token is expired
 - [ ] Include authentification from default credentials (Active Directory Auth)
 - [ ] Create-Set-CentreonConfig ?
