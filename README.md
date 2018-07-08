@@ -32,7 +32,7 @@
 ### Import Module
 
 ```powershell
-Import-Module CentreonServer  #Alternatively, Import-Module "\\Path\To\CentreonServer"
+Import-Module CentreonServer  #Alternatively, Import-Module "\\Path\To\CentreonServer\CentreonServer.psm1"
 ```
 
 ## Quick Start
@@ -59,6 +59,7 @@ $Session = New-CentreonConnection -server 192.168.0.30 -Credentials $Credentials
 
 Refer to the <a href="https://documentation.centreon.com/docs/centreon/en/latest/api/clapi/objects/index.html">Centreon Clapi documentation</a> documentation Centreon Clapi according to the action you want to do.
 
+### Run Centreon(Clapi) Command
 
 The following command line, allow to add an Host to Centreon :
 ```powershell
@@ -135,7 +136,6 @@ Get-CentreonHostsStatus -Session $Session
 Get-CentreonHostsStatus -Session $Session -status all -order ASC -search '%rsys%'
 ```
 
-### Run Centreon(Clapi) Command
 
 
 
