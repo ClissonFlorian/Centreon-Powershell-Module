@@ -19,12 +19,12 @@
 ## One time setup
 
 ### Download and Unzip package
-Download the repository
-Unblock the zip file
-Extract CentreonServer folder to a module path :
-- Local user
+- Download the repository
+- Unblock the zip file
+- Extract CentreonServer folder to a module path :
+    - Local user :
         $env:USERPROFILE\Documents\WindowsPowerShell\Modules\)
-- All users
+    - All users :
         "C:\Program Files\WindowsPowerShell\Modules"
 
 ### Import Module
@@ -84,15 +84,44 @@ $Session = New-CentreonConnection -server 192.168.0.30 -Credentials $Credentials
 #EXMPLE 1
 Get-CentreonServiceStatus -Session $Session 
 
+host_id                : 15
+name                   : Centeon-central
+description            : Broker-Retention
+service_id             : 95
+state                  : 0
+state_type             : 1
+output                 : OK: centreon-broker failover/temporary files are ok
+                         Checking config '/etc/centreon-broker/central-rrd.xml'\nskipping temporary: no configuration set\nChecking config 
+                         '/etc/centreon-broker/central-broker.xml'\nskipping temporary: no configuration set\n
+perfdata               : 
+max_check_attempts     : 3
+check_attempt          : 1
+last_check             : 1531062538
+last_state_change      : 1528587027
+last_hard_state_change : 1528587027
+acknowledged           : 0
+criticality            : 
+
 #EXMPLE 2
-Get-CentreonServiceStatus -Session $Session -status all -order ASC  -search '%rsys%'
+Get-CentreonServiceStatus -Session $Session -status all -order ASC -search '%rsys%'
+```
+
+
+### Get Centreon Hosts
+```powershell
+#EXMPLE 1
+Get-CentreonHostsStatus -Session $Session 
+
+#EXMPLE 2
+Get-CentreonHostsStatus -Session $Session -status all -order ASC -search '%rsys%'
 ```
 
 ### Run Centreon(Clapi) Command
 
-Report you to the  <a href="https://documentation.centreon.com/docs/centreon/en/latest/api/clapi/objects/index.html">Centreon Clapi documentation</a> according the action that you want to do:
+Report you to the  <a href="https://documentation.centreon.com/docs/centreon/en/latest/api/clapi/objects/index.html">Centreon Clapi documentation</a> according the action that you want to do.
 
 
+The following command line, allow to add an Host to Centreon :
 ```powershell
  Run-CentreonCommand -Session $Session -object HOST -action ADD -Values "test;Test host;127.0.0.1;OS-Linux-SNMP-custom;central;Centreon_platform"
 ```
