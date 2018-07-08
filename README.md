@@ -22,10 +22,10 @@
 Download the repository
 Unblock the zip file
 Extract CentreonServer folder to a module path :
-    * Local user
-      $env:USERPROFILE\Documents\WindowsPowerShell\Modules\)
-    * All users
-        *   "C:\Program Files\WindowsPowerShell\Modules"
+    - Local user
+            $env:USERPROFILE\Documents\WindowsPowerShell\Modules\)
+    - All users
+           "C:\Program Files\WindowsPowerShell\Modules"
 
 ### Import Module
 
@@ -42,7 +42,7 @@ Get-Command -Module CentreonServer
 
 ### Open connection to Centreon Server
 ```powershell
-    $Session = New-SSConnection -server 192.168.1.50
+    $Session = New-CentreonConnection -server 192.168.1.50
 ```
 
 ## How to use it
