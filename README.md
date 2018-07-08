@@ -4,7 +4,7 @@
 
 ## Description
 
-    Use the Centreon API easily with Powershell
+    Use Centreon API easily with Powershell
 
 ## Available Functions 
 
@@ -35,22 +35,30 @@ Extract CentreonServer folder to a module path :
 
 ## Quick Start
 
+### List commands of the module
+```powershell
+Get-Command -Module CentreonServer
+```
+
 ### Open connection to Centreon Server
 ```powershell
     $Session = New-SSConnection -server 192.168.1.50
 ```
 
-### Open connection to Centreon Server
+## How to use it
+
+### Get Centreon Hosts
+```powershell
+   #EXMPLE 1
+   Get-HostStatus -Session $Session 
+```
+
+### Get Centreon Services
 ```powershell
    Get-ServiceStatus -Session $Session 
 ```
 
-## How to use it
 
-### List commands of the module
-```powershell
-Get-Command -Module CentreonServer
-```
    
 ##Changelog
 
