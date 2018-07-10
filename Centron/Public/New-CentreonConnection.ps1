@@ -9,7 +9,7 @@ function New-CentreonConnection{
         .EXAMPLE
             $Session = New-SSConnection -server 192.168.1.50
         .EXAMPLE
-            $Credentials = Get-Credential -Message "Enter  centreon credentials"
+            $Credentials = Get-Credential -Message "Enter centreon credentials"
             $Session = New-SSConnection -server 192.168.1.50 -Credentials $Credentials
         .NOTE
             

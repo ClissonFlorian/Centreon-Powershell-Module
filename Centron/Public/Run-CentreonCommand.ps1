@@ -1,4 +1,4 @@
-function Run-CentreonCommand {
+function Invoke-CentreonCommand {
 
      <#
         .SYNOPSIS
