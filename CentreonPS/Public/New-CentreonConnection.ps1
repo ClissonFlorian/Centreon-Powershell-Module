@@ -1,39 +1,28 @@
 function New-CentreonConnection{
       <#
         .SYNOPSIS
-            Create a connection to Centreon server
-        .DESCRIPTION
-            Create a connection to Centreon server
+            Authenticate against the Rest API.
         .PARAMETER Server
-            Centreon server : IP address or Hostname 
+            Specify the IP address or the Hostname of the Centreon Server.
+        .PARAMETER Credentials
+            Specify Centreon Credentials.
         .EXAMPLE
             $Session = New-SSConnection -server 192.168.1.50
         .EXAMPLE
-            $Credentials = Get-Credential -Message "Enter  centreon credentials"
+            $Credentials = Get-Credential -Message "Enter centreon credentials"
             $Session = New-SSConnection -server 192.168.1.50 -Credentials $Credentials
-        .NOTE
-            
-            I have to find a way to know when the token will be expired or it is expired.
-
-            #"Unauthorized" is the output when token is expired but I think it's not really clean to use this output as Indicator.
-
-            I think centreon use the same param "Session Expiration Time" of the Web Interface for the API. The default value is 120minutes
-            
-            This param is available form the Web Interface to : Administration->Centreon UI-><Sessions Expiration Time>
-            It's not yet possible to get this value from the API currently
-            
-
-        .OUTPUT 
-
-            return object that contain : server address,url and token
+        .OUTPUTS
+            System.Object. Returns object with server,url and token.
+        .NOTES
+            https://github.com/ClissonFlorian/Centreon-Powershell-Module
     #>
 
     [CmdletBinding()]
     param(       
-        [parameter(Mandatory = $true, HelpMessage = "Your centreon ip address or hostname")]
+        [parameter(Mandatory = $true)]
         [string]$server,
+        [parameter(Mandatory = $false)]
         $Credentials=(Get-Credential -Message "Enter centreon credentials")
-
     )
 
     $url = "$server/centreon/api/index.php?"

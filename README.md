@@ -13,7 +13,7 @@
 | **New-CentreonConnection** | To connect to the Centreon Server|
 | **Get-CentreonHostStatus**| Return the centreon hosts status in realtime|
 | **Get-CentreonServiceStatus**| Return the centreon services status in realtime |
-| **Run-CentreonCommand**   | To manage the centreon objects (add,delete,set,show) |
+| **Invoke-CentreonCommand**   | To manage the centreon objects (add,delete,set,show...) |
    
 
 ## One time setup
@@ -145,3 +145,4 @@ Get-CentreonHostsStatus -Session $Session -status all -order ASC -search '%rsys%
 - [ ] Manage case when the token is expired
 - [ ] Include authentification from default credentials (Active Directory Auth)
 - [ ] Create Set-CentreonServerConfig?
+- [ ] Create dynamic parameters on the Invoke-CentreonCommand function
