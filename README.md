@@ -16,43 +16,38 @@
 | **Invoke-CentreonCommand**   | To manage the centreon objects (add,delete,set,show...) |
    
 
-## One time setup
+## One time Setup 
 
-### Download and Unzip package
-- Download the repository
-- Unblock the zip file
-- Extract CentreonServer folder to a module path :
-    - Local user :
-        $env:USERPROFILE\Documents\WindowsPowerShell\Modules\)
-    - All users :
-        "C:\Program Files\WindowsPowerShell\Modules"
-- **Allow user to use centreon API**
-<a href="https://documentation.centreon.com/docs/centreon/en/latest/api/api_rest/index.html#permissions">(Centreon Permissions)</a>
-
-### Import Module
+Install the module from the PowerShell Gallery.
 
 ```powershell
-Import-Module CentreonServer.psd1  #Alternatively, Import-Module "\\Path\To\CentreonServer\CentreonServer.psd1"
+Install-Module CentreonPS
 ```
+
+
+### Prerequisite
+
+**Allow user to use centreon API**
+<a href="https://documentation.centreon.com/docs/centreon/en/latest/api/api_rest/index.html#permissions">(Centreon Permissions)</a>
 
 ## Quick Start
 
 ### List commands of the module
 ```powershell
-Get-Command -Module CentreonServer
+Get-Command -Module CentreonPS
 ```
 
 ### Centreon Server Connection
 
 #METHODE 1 : Will request you, your centreon credentials 
 ```powershell
-$Session = New-CentreonConnection -server 192.168.1.50
+$Session = New-CentreonConnection -server "192.168.1.50"
 ```
 
 #METHODE 2 : Allow to specify your credentials 
 ```powershell
 $Credentials = Get-Credential -UserName fclisson
-$Session = New-CentreonConnection -server 192.168.0.30 -Credentials $Credentials
+$Session = New-CentreonConnection -server "192.168.0.30" -Credentials $Credentials
 ```
 
 ## How to use it
@@ -63,12 +58,12 @@ Refer you to the <a href="https://documentation.centreon.com/docs/centreon/en/la
 
 The following command line, allow to add an Host to Centreon :
 ```powershell
- Run-CentreonCommand -Session $Session -object HOST -action ADD -Values "test;Test host;127.0.0.1;OS-Linux-SNMP-custom;central;Centreon_platform"
+ Invoke-CentreonCommand -Session $Session -object HOST -action ADD -Values "test;Test host;127.0.0.1;OS-Linux-SNMP-custom;central;Centreon_platform"
 ```
 
 The following command line, allow to show the contact groups :
 ```powershell
- Run-CentreonCommand -Session $Session -object CG -action show
+ Invoke-CentreonCommand -Session $Session -object CG -action show
 ```
 
 
