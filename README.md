@@ -6,7 +6,7 @@
 
     Use Centreon API easily with Powershell
 
-![alt text](https://github.com/ClissonFlorian/Centreon-Powershell-Module/Media/Centreon.jpg "CentreonPS")
+![alt text](https://github.com/ClissonFlorian/Centreon-Powershell-Module/blob/master/Media/Centreon.jpg "CentreonPS")
 
 ## Table of Contents
 
@@ -26,8 +26,7 @@
 ### Permissions
 <a id="Permissions"></a>
 
-Enable Reach API Configuration and/or Reach API Realtime on the user.
-**Allow user to use centreon API**
+* Enable Reach API Configuration and/or Reach API Realtime on the user. 
 <a href="https://documentation.centreon.com/docs/centreon/en/latest/api/api_rest/index.html#permissions">(Centreon Permissions)</a>
 
 ### Install
@@ -61,14 +60,16 @@ Get-Command -Module CentreonPS
 
 ### Centreon Server Connection
 
-**You have to re-do this step when the token has expired.**
+<span style="color:red"> You have to re-do this step when the token has expired. </span>
 
 ####Method 1 : Will request you, your centreon credentials 
+
 ```powershell
 $Session = New-CentreonConnection -server "192.168.1.50"
 ```
 
 ####Method 2 : Allow to specify your credentials 
+
 ```powershell
 $Credentials = Get-Credential -UserName fclisson
 $Session = New-CentreonConnection -server "192.168.0.30" -Credentials $Credentials
@@ -76,7 +77,7 @@ $Session = New-CentreonConnection -server "192.168.0.30" -Credentials $Credentia
 
 ## How to use it
 
-Refer you to the <a href="https://documentation.centreon.com/docs/centreon/en/latest/api/clapi/objects/index.html">Centreon Clapi documentation</a> documentation Centreon Clapi according to the action you want to do.
+Refer you to the <a href="https://documentation.centreon.com/docs/centreon/en/latest/api/clapi/objects/index.html">Centreon Clapi documentation</a> according to the action you want to do.
 
 ### Run Centreon(Clapi) Command
 
@@ -93,16 +94,18 @@ The following command line, allow to show the contact groups :
 
 ### Get Centreon Hosts
 
-##Example 1
+## Example 1
+
 ```powershell
    Get-CentreonHostStatus -Session $Session 
 ```
-##Example 2
+## Example 2
+
 ```powershell
    Get-CentreonServiceStatus -Session $Session -status all -order ASC -search '%rsys%' 
 ```
 
-##OUTPUT
+## OUTPUT
 
 ```powershell
 
@@ -125,12 +128,12 @@ The following command line, allow to show the contact groups :
 
 ### Get Centreon Services
 
-#EXEMPLE
+# EXEMPLE
 ```powershell
 Get-CentreonServiceStatus -Session $Session 
 ```
 
-#OUTPUT
+# OUTPUT
 ```powershell
 
 host_id                : 15
@@ -155,17 +158,17 @@ criticality            :
 
 ### Get Centreon Hosts
 
-#EXAMPLE 1
+# EXAMPLE 1
 ```powershell
 Get-CentreonHostsStatus -Session $Session 
 ```
 
-#EXAMPLE 2
+# EXAMPLE 2
 ```powershell
 Get-CentreonHostsStatus -Session $Session -status all -order ASC -search '%rsys%'
 ```
 
-#Resources
+# Resources
 
 * Centreon API Documentation](https://documentation.centreon.com/docs/centreon/en/2.8.x/api/index.html)
 
