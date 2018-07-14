@@ -173,13 +173,13 @@ Get-CentreonHostsStatus -Session $Session -status all -order ASC -search '%rsys%
 ## Resources
 <a id="Resources"></a>
 
-* [Centreon API Documentation (https://documentation.centreon.com/docs/centreon/en/2.8.x/api/index.html)
+* [Centreon API Documentation](https://documentation.centreon.com/docs/centreon/en/2.8.x/api/index.html)
 
 
 
 ## ToDo
 
-- [ ] Not sure that the powershell plugin work with https,to try?
+- [ ] Not sure that the powershell plugin works with https,to try?
 - [ ] Manage case when the token is expired
 - [ ] Include authentification from default credentials (Active Directory Auth)
 - [ ] Create Set-CentreonServerConfig?
