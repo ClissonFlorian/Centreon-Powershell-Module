@@ -1,7 +1,5 @@
 # Centreon Server PowerShell Module
 
-# Introduction
-
 ## Description
 
     Use Centreon API easily from Powershell
