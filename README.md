@@ -128,12 +128,12 @@ The following command line, allow to show the contact groups :
 
 ### Get Centreon Services
 
-# EXEMPLE
+#### EXEMPLE
 ```powershell
 Get-CentreonServiceStatus -Session $Session 
 ```
 
-# OUTPUT
+#### OUTPUT
 ```powershell
 
 host_id                : 15
@@ -158,17 +158,17 @@ criticality            :
 
 ### Get Centreon Hosts
 
-# EXAMPLE 1
+#### EXAMPLE 1
 ```powershell
 Get-CentreonHostsStatus -Session $Session 
 ```
 
-# EXAMPLE 2
+#### EXAMPLE 2
 ```powershell
 Get-CentreonHostsStatus -Session $Session -status all -order ASC -search '%rsys%'
 ```
 
-# Resources
+## Resources
 
 * Centreon API Documentation](https://documentation.centreon.com/docs/centreon/en/2.8.x/api/index.html)
 
