@@ -158,7 +158,7 @@ Get-CentreonHostsStatus -Session $Session -status all -order ASC -search '%rsys%
 
 ## Resources
 
-* Centreon API Documentation](https://documentation.centreon.com/docs/centreon/en/2.8.x/api/index.html)
+* [Centreon API Documentation (https://documentation.centreon.com/docs/centreon/en/2.8.x/api/index.html)
 
 
 
