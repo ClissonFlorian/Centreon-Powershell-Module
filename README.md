@@ -6,8 +6,6 @@
 
     Use Centreon API easily with Powershell
 
-![alt text](https://github.com/ClissonFlorian/Centreon-Powershell-Module/blob/master/Media/Centreon.jpg "CentreonPS")
-
 ## Table of Contents
 
 * [One Time Setup](#OneTimeSetup)
@@ -62,13 +60,13 @@ Get-Command -Module CentreonPS
 
 <span style="color:red"> You have to re-do this step when the token has expired. </span>
 
-####Method 1 : Will request you, your centreon credentials 
+#### Method 1 : Will request you, your centreon credentials 
 
 ```powershell
 $Session = New-CentreonConnection -server "192.168.1.50"
 ```
 
-####Method 2 : Allow to specify your credentials 
+#### Method 2 : Allow to specify your credentials 
 
 ```powershell
 $Credentials = Get-Credential -UserName fclisson
@@ -77,11 +75,15 @@ $Session = New-CentreonConnection -server "192.168.0.30" -Credentials $Credentia
 
 ## How to use it
 
-Refer you to the <a href="https://documentation.centreon.com/docs/centreon/en/latest/api/clapi/objects/index.html">Centreon Clapi documentation</a> according to the action you want to do.
+Invoke-CentreonCommand allow to manage any centreon object.
 
-### Run Centreon(Clapi) Command
+You have to specify the `object` that you want manage then which `action` you want do on it and lastly the value `values` expected.
 
-The following command line, allow to add an Host to Centreon :
+Action and object list available from : <a href="https://documentation.centreon.com/docs/centreon/en/latest/api/clapi/objects/index.html">Centreon Clapi documentation</a>.
+
+### Invoke Centreon(Clapi) Command
+
+The following command line allow to add an Host to Centreon :
 ```powershell
  Invoke-CentreonCommand -Session $Session -object HOST -action ADD -Values "test;Test host;127.0.0.1;OS-Linux-SNMP-custom;central;Centreon_platform"
 ```
@@ -89,41 +91,6 @@ The following command line, allow to add an Host to Centreon :
 The following command line, allow to show the contact groups :
 ```powershell
  Invoke-CentreonCommand -Session $Session -object CG -action show
-```
-
-
-### Get Centreon Hosts
-
-## Example 1
-
-```powershell
-   Get-CentreonHostStatus -Session $Session 
-```
-## Example 2
-
-```powershell
-   Get-CentreonServiceStatus -Session $Session -status all -order ASC -search '%rsys%' 
-```
-
-## OUTPUT
-
-```powershell
-
-    id                     : 15
-    name                   : Centeon-central
-    alias                  : Centreon central server
-    address                : 127.0.0.1
-    state                  : 0
-    state_type             : 1
-    output                 : OK - 127.0.0.1: rta 0.025ms, lost 0%
-    max_check_attempts     : 3
-    check_attempt          : 1
-    last_check             : 1531060693
-    last_state_change      : 1528586735
-    last_hard_state_change : 1528586735
-    acknowledged           : 0
-    instance_name          : Central
-    criticality            :
 ```
 
 ### Get Centreon Services
@@ -166,6 +133,27 @@ Get-CentreonHostsStatus -Session $Session
 #### EXAMPLE 2
 ```powershell
 Get-CentreonHostsStatus -Session $Session -status all -order ASC -search '%rsys%'
+```
+
+#### OUTPUT
+
+```powershell
+
+    id                     : 15
+    name                   : Centeon-central
+    alias                  : Centreon central server
+    address                : 127.0.0.1
+    state                  : 0
+    state_type             : 1
+    output                 : OK - 127.0.0.1: rta 0.025ms, lost 0%
+    max_check_attempts     : 3
+    check_attempt          : 1
+    last_check             : 1531060693
+    last_state_change      : 1528586735
+    last_hard_state_change : 1528586735
+    acknowledged           : 0
+    instance_name          : Central
+    criticality            :
 ```
 
 ## Resources
