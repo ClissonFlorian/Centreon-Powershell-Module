@@ -4,7 +4,7 @@
 
 ## Description
 
-    Use Centreon API easily with Powershell
+    Use Centreon API easily from Powershell
 
 ## Table of Contents
 
