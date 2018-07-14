@@ -12,10 +12,18 @@
     * [Install](#Install)
     * [Permissions](#Permissions)
 * [Get Started](#GetStarted)
-    * [Available cmdlets](#AvailableCmds)
     * [List commands of the module](#ListCmds)
-* [Configure connection](#Configure)
+    * [Available cmdlets](#AvailableCmds)
+    * [Centreon Server Connection](#Connection)
+* [How to use it](#HowToUseIt)
+    * [Invoke Centreon(Clapi) Command](#InvokeCentreonClapiCommand)
+    * [Get Centreon Services](#GetCentreonServices)
+    * [Get Centreon Hosts](#GetCentreonHosts)
 * [Resources](#Resources)
+
+
+
+
 
 
 ## One time Setup  
@@ -57,6 +65,7 @@ Get-Command -Module CentreonPS
 | Invoke-CentreonCommand | To manage the centreon objects (add,delete,set,show...) |
 
 ### Centreon Server Connection
+<a id="Connection"></a> 
 
 <span style="color:red"> You have to re-do this step when the token has expired. </span>
 
@@ -74,14 +83,17 @@ $Session = New-CentreonConnection -server "192.168.0.30" -Credentials $Credentia
 ```
 
 ## How to use it
+<a id="HowToUseIt"></a> 
+
 
 Invoke-CentreonCommand allow to manage any centreon object.
 
-You have to specify the `object` that you want manage then which `action` you want do on it and lastly the value `values` expected.
+You have to specify the `object` that you want to manage then which `action` you want to do on it and lastly the value `values` expected.
 
 Action and object list available from : <a href="https://documentation.centreon.com/docs/centreon/en/latest/api/clapi/objects/index.html">Centreon Clapi documentation</a>.
 
 ### Invoke Centreon(Clapi) Command
+<a id="InvokeCentreonClapiCommand"></a>
 
 The following command line allow to add an Host to Centreon :
 ```powershell
@@ -94,6 +106,7 @@ The following command line, allow to show the contact groups :
 ```
 
 ### Get Centreon Services
+<a id=" GetCentreonServices"></a> 
 
 #### EXEMPLE
 ```powershell
@@ -124,6 +137,7 @@ criticality            :
 ```
 
 ### Get Centreon Hosts
+<a id=" GetCentreonHosts"></a> 
 
 #### EXAMPLE 1
 ```powershell
@@ -157,6 +171,7 @@ Get-CentreonHostsStatus -Session $Session -status all -order ASC -search '%rsys%
 ```
 
 ## Resources
+<a id="Resources"></a>
 
 * [Centreon API Documentation (https://documentation.centreon.com/docs/centreon/en/2.8.x/api/index.html)
 
