@@ -6,18 +6,32 @@
 
     Use Centreon API easily with Powershell
 
-## Available Functions 
+![alt text](https://github.com/ClissonFlorian/Centreon-Powershell-Module/Media/Centreon.jpg "CentreonPS")
 
-|Function | Description |
-|:------|:-----------|
-| **New-CentreonConnection** | To connect to the Centreon Server|
-| **Get-CentreonHostStatus**| Return the centreon hosts status in realtime|
-| **Get-CentreonServiceStatus**| Return the centreon services status in realtime |
-| **Invoke-CentreonCommand**   | To manage the centreon objects (add,delete,set,show...) |
-   
+## Table of Contents
 
-## One time Setup 
+* [One Time Setup](#OneTimeSetup)
+    * [Install](#Install)
+    * [Permissions](#Permissions)
+* [Get Started](#GetStarted)
+    * [Available cmdlets](#AvailableCmds)
+    * [List commands of the module](#ListCmds)
+* [Configure connection](#Configure)
+* [Resources](#Resources)
 
+
+## One time Setup  
+<a id="OneTimeSetup"></a> 
+
+### Permissions
+<a id="Permissions"></a>
+
+Enable Reach API Configuration and/or Reach API Realtime on the user.
+**Allow user to use centreon API**
+<a href="https://documentation.centreon.com/docs/centreon/en/latest/api/api_rest/index.html#permissions">(Centreon Permissions)</a>
+
+### Install
+<a id="Install"></a> 
 Install the module from the PowerShell Gallery.
 
 ```powershell
@@ -25,26 +39,36 @@ Install-Module CentreonPS
 ```
 
 
-### Prerequisite
-
-**Allow user to use centreon API**
-<a href="https://documentation.centreon.com/docs/centreon/en/latest/api/api_rest/index.html#permissions">(Centreon Permissions)</a>
-
-## Quick Start
+## Get Started
+<a id="GetStarted"></a> 
 
 ### List commands of the module
+<a id="ListCmds"></a> 
+
+
 ```powershell
 Get-Command -Module CentreonPS
 ```
+### Available cmdlets
+<a id="AvailableCmds"></a> 
+
+|Functions | Descriptions |
+|:------|:-----------|
+| New-CentreonConnection | To connect to the Centreon Server|
+| Get-CentreonHostStatus | Return the centreon hosts status in realtime|
+| Get-CentreonServiceStatus | Return the centreon services status in realtime |
+| Invoke-CentreonCommand | To manage the centreon objects (add,delete,set,show...) |
 
 ### Centreon Server Connection
 
-#METHODE 1 : Will request you, your centreon credentials 
+**You have to re-do this step when the token has expired.**
+
+####Method 1 : Will request you, your centreon credentials 
 ```powershell
 $Session = New-CentreonConnection -server "192.168.1.50"
 ```
 
-#METHODE 2 : Allow to specify your credentials 
+####Method 2 : Allow to specify your credentials 
 ```powershell
 $Credentials = Get-Credential -UserName fclisson
 $Session = New-CentreonConnection -server "192.168.0.30" -Credentials $Credentials
@@ -67,13 +91,20 @@ The following command line, allow to show the contact groups :
 ```
 
 
-
 ### Get Centreon Hosts
-```powershell
-   #EXMPLE 1
-   Get-CentreonHostStatus -Session $Session 
 
-   OUTPUT:
+##Example 1
+```powershell
+   Get-CentreonHostStatus -Session $Session 
+```
+##Example 2
+```powershell
+   Get-CentreonServiceStatus -Session $Session -status all -order ASC -search '%rsys%' 
+```
+
+##OUTPUT
+
+```powershell
 
     id                     : 15
     name                   : Centeon-central
@@ -93,11 +124,14 @@ The following command line, allow to show the contact groups :
 ```
 
 ### Get Centreon Services
-```powershell
-#EXMPLE 1
-Get-CentreonServiceStatus -Session $Session 
 
-OUTPUT:
+#EXEMPLE
+```powershell
+Get-CentreonServiceStatus -Session $Session 
+```
+
+#OUTPUT
+```powershell
 
 host_id                : 15
 name                   : Centeon-central
@@ -117,20 +151,23 @@ last_hard_state_change : 1528587027
 acknowledged           : 0
 criticality            : 
 
-#EXMPLE 2
-Get-CentreonServiceStatus -Session $Session -status all -order ASC -search '%rsys%'
 ```
 
-
 ### Get Centreon Hosts
-```powershell
-#EXMPLE 1
-Get-CentreonHostsStatus -Session $Session 
 
-#EXMPLE 2
+#EXAMPLE 1
+```powershell
+Get-CentreonHostsStatus -Session $Session 
+```
+
+#EXAMPLE 2
+```powershell
 Get-CentreonHostsStatus -Session $Session -status all -order ASC -search '%rsys%'
 ```
 
+#Resources
+
+* Centreon API Documentation](https://documentation.centreon.com/docs/centreon/en/2.8.x/api/index.html)
 
 
 
@@ -141,3 +178,7 @@ Get-CentreonHostsStatus -Session $Session -status all -order ASC -search '%rsys%
 - [ ] Include authentification from default credentials (Active Directory Auth)
 - [ ] Create Set-CentreonServerConfig?
 - [ ] Create dynamic parameters on the Invoke-CentreonCommand function
+
+
+
+
